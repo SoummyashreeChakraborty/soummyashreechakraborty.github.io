@@ -3,394 +3,411 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soummyashree Chakraborty | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0f0d0d;
-      --bg-soft: #171414;
-      --card: rgba(255,255,255,0.06);
-      --text: #f5f1eb;
-      --muted: #c9beb0;
-      --accent: #d8b98f;
-      --line: rgba(255,255,255,0.08);
-      --shadow: 0 20px 60px rgba(0,0,0,0.35);
-      --radius: 24px;
-    }
+  <title>Soummyashree Chakraborty | Artist · Activist · Translator</title>
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(216,185,143,0.08), transparent 30%),
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04), transparent 25%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+  <!-- SEO -->
+  <meta name="description" content="Soummyashree Chakraborty — Artist, Vegan Activist, Translator of Sacred Scriptures, Voice Artist & Spiritual Counsellor. Personal brand portfolio." />
+  <meta name="keywords"    content="Soummyashree Chakraborty, vegan activist, artist, translator, voice artist, spiritual counsellor, Buddhist studies, NGO" />
+  <meta name="author"      content="Soummyashree Chakraborty" />
+  <meta name="robots"      content="index, follow" />
+  <link rel="canonical"    href="https://soummyashreechakraborty.github.io" />
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: 0;
-    }
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://soummyashreechakraborty.github.io" />
+  <meta property="og:title"       content="Soummyashree Chakraborty | Portfolio" />
+  <meta property="og:description" content="Artist · Vegan Activist · Translator · Voice Artist · Spiritual Counsellor" />
+  <meta property="og:image"       content="https://soummyashreechakraborty.github.io/assets/images/portrait.png" />
+  <meta property="og:locale"      content="en_IN" />
 
-    .loader {
-      position: fixed;
-      inset: 0;
-      background: #0b0909;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: 1s ease;
-    }
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Soummyashree Chakraborty | Portfolio" />
+  <meta name="twitter:description" content="Artist · Vegan Activist · Translator · Voice Artist · Spiritual Counsellor" />
+  <meta name="twitter:image"       content="https://soummyashreechakraborty.github.io/assets/images/portrait.png" />
 
-    .loader h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem;
-      letter-spacing: 4px;
-      color: var(--accent);
-      animation: pulse 2s infinite;
-    }
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon"          href="assets/favicon.svg" />
 
-    @keyframes pulse {
-      0%,100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-    .hide-loader { opacity: 0; visibility: hidden; }
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      backdrop-filter: blur(18px);
-      background: rgba(10,10,10,0.45);
-      border-bottom: 1px solid var(--line);
-    }
+  <!-- GLightbox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" />
 
-    .nav-wrap {
-      max-width: 1200px;
-      margin: auto;
-      padding: 18px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      letter-spacing: 1px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 0.95rem;
-      transition: .3s;
-    }
-
-    .nav-links a:hover { color: var(--accent); }
-
-    section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 120px 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      align-items: center;
-      gap: 60px;
-    }
-
-    h1, h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      line-height: 1.1;
-    }
-
-    h1 { font-size: clamp(3rem, 7vw, 6rem); }
-    h2 { font-size: clamp(2.2rem, 4vw, 3.8rem); margin-bottom: 20px; }
-
-    .eyebrow {
-      color: var(--accent);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      margin-bottom: 14px;
-    }
-
-    .hero p { color: var(--muted); font-size: 1.05rem; max-width: 620px; }
-
-    .tagline {
-      margin: 22px 0;
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 16px;
-      margin-top: 34px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 14px 26px;
-      border-radius: 999px;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--text);
-      transition: .35s;
-      backdrop-filter: blur(12px);
-    }
-
-    .btn.primary {
-      background: rgba(216,185,143,0.12);
-      border-color: rgba(216,185,143,0.35);
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-    }
-
-    .portrait {
-      height: 620px;
-      border-radius: 32px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 30px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .portrait::before {
-      content: "Professional Portrait";
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      color: rgba(255,255,255,0.65);
-    }
-
-    .glass-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
-      backdrop-filter: blur(18px);
-      box-shadow: var(--shadow);
-      transition: .4s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-    }
-
-    .timeline .card { margin-bottom: 20px; }
-
-    .muted { color: var(--muted); }
-
-    .contact a {
-      color: var(--text);
-      text-decoration: none;
-      display: block;
-      margin: 10px 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px 80px;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all .9s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 120px;
-      }
-      .portrait { height: 420px; }
-      .nav-links { display: none; }
-    }
-  </style>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
 </head>
+
 <body>
 
-<div class="loader" id="loader">
-  <h1>SOUMMYASHREE</h1>
-</div>
+  <!-- Ambient background -->
+  <div id="ambientBg" aria-hidden="true"></div>
 
-<nav>
-  <div class="nav-wrap">
-    <div class="logo">Soummyashree</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+  <!-- Particles canvas -->
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+  <!-- Custom cursor -->
+  <div class="cursor"          id="cursor"         aria-hidden="true"></div>
+  <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ══════════════════ LOADER ══════════════════ -->
+  <div class="loader" id="loader" role="status" aria-label="Loading">
+    <div class="loader-inner">
+      <div class="loader-logo">SC</div>
+      <div class="loader-line"></div>
+      <p class="loader-text">Soummyashree Chakraborty</p>
     </div>
   </div>
-</nav>
 
-<section class="hero reveal">
-  <div>
-    <div class="eyebrow">Luxury Personal Brand Portfolio</div>
-    <h1>Soummyashree Chakraborty</h1>
-    <p class="tagline">Artist • Vegan Activist • Translator • Voice Artist • Spiritual Counsellor</p>
-    <p>
-      Creating beauty, compassion, and consciousness through art and purpose — where soulful storytelling meets activism, spirituality, and creative elegance.
-    </p>
-    <div class="buttons">
-      <a href="#experience" class="btn primary">View Work</a>
-      <a href="#contact" class="btn">Contact Me</a>
+  <!-- ══════════════════ NAVIGATION ══════════════════ -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-wrap">
+      <a href="#hero" class="logo" aria-label="Home"><span>S</span>oummyashree</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about"      class="nav-link magnetic">About</a>
+        <a href="#experience" class="nav-link magnetic">Experience</a>
+        <a href="#skills"     class="nav-link magnetic">Skills</a>
+        <a href="#gallery"    class="nav-link magnetic">Gallery</a>
+        <a href="#education"  class="nav-link magnetic">Education</a>
+        <a href="#contact"    class="nav-link magnetic">Contact</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════ MOBILE MENU ══════════════════ -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close navigation">&#10005;</button>
+    <nav class="mobile-nav">
+      <a href="#about"      class="mobile-nav-link">About</a>
+      <a href="#experience" class="mobile-nav-link">Experience</a>
+      <a href="#skills"     class="mobile-nav-link">Skills</a>
+      <a href="#gallery"    class="mobile-nav-link">Gallery</a>
+      <a href="#education"  class="mobile-nav-link">Education</a>
+      <a href="#contact"    class="mobile-nav-link">Contact</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <a href="mailto:yeshudhun97@gmail.com">yeshudhun97@gmail.com</a>
     </div>
   </div>
-  <div class="portrait"></div>
-</section>
 
-<section id="about" class="reveal">
-  <div class="eyebrow">About</div>
-  <h2>A life devoted to compassion, creativity, and conscious living.</h2>
-  <p class="muted">
-    I am a vegan activist, artist, translator of sacred scriptures, spiritual counsellor, culinary creator, and founder of purpose-driven initiatives rooted in empathy. Through Voice for the Paws and Happy Kitchen, I create spaces where kindness becomes action. My work bridges spiritual depth and artistic expression—bringing healing, awareness, and beauty into everyday life.
-  </p>
-</section>
+  <!-- ══════════════════ HERO ══════════════════ -->
+  <section id="hero" class="hero-section" aria-labelledby="heroHeading">
+    <div class="hero-content">
+      <div class="eyebrow">Luxury Personal Brand Portfolio</div>
+      <h1 id="heroHeading" class="hero-title">Soummyashree<br>Chakraborty</h1>
+      <p class="tagline">Artist &nbsp;&middot;&nbsp; Vegan Activist &nbsp;&middot;&nbsp; Translator &nbsp;&middot;&nbsp; Voice Artist &nbsp;&middot;&nbsp; Spiritual Counsellor</p>
+      <p class="hero-desc">
+        Creating beauty, compassion, and consciousness through art and purpose &mdash; where soulful storytelling meets activism, spirituality, and creative elegance.
+      </p>
+      <div class="hero-buttons">
+        <a href="#experience" class="btn primary magnetic">View My Work</a>
+        <a href="#contact"    class="btn secondary magnetic">Get in Touch</a>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span>Scroll to explore</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
 
-<section id="experience" class="timeline reveal">
-  <div class="eyebrow">Experience</div>
-  <h2>Work with purpose.</h2>
-  <div class="glass-grid">
-    <div class="card">Translator of Buddhist & Christian Scriptures</div>
-    <div class="card">Founder — Voice for the Paws (NGO)</div>
-    <div class="card">Founder — Happy Kitchen (Plant-Based Cloud Kitchen)</div>
-    <div class="card">Art Seller</div>
-    <div class="card">Vegan Outreach Advocate</div>
-    <div class="card">Voice Artist</div>
-    <div class="card">Creative Ideator — Satvic Movement</div>
-    <div class="card">Northeast Frontier Railway (2025–2026)</div>
-  </div>
-</section>
+    <div class="hero-portrait-wrap" id="portraitWrap">
+      <div class="portrait-frame">
+        <!--
+          PORTRAIT IMAGE
+          Place your photo at: assets/images/portrait.png
+          Recommended: JPG/WebP, 800x1000px, 4:5 ratio
+        -->
+        <img
+          src="assets/images/portrait.png"
+          alt="Soummyashree Chakraborty — Artist, Vegan Activist and Spiritual Counsellor"
+          class="portrait-img"
+          loading="eager"
+          decoding="async"
+          onerror="this.style.display='none'"
+        />
+        <div class="portrait-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="portrait-badge" aria-hidden="true">
+        <span>Vegan &nbsp;&middot;&nbsp; Artist &nbsp;&middot;&nbsp; Voice</span>
+      </div>
+    </div>
+  </section>
 
-<section id="skills" class="reveal">
-  <div class="eyebrow">Skills</div>
-  <h2>Crafted with heart and discipline.</h2>
-  <div class="glass-grid">
-    <div class="card">Content Writing</div>
-    <div class="card">Translation</div>
-    <div class="card">Communication</div>
-    <div class="card">Cooking</div>
-    <div class="card">Music Composition</div>
-    <div class="card">Doodling</div>
-    <div class="card">Public Speaking</div>
-    <div class="card">Education Guidance</div>
-    <div class="card">Social Media Marketing</div>
-    <div class="card">Motivation & Counselling</div>
-  </div>
-</section>
+  <!-- ══════════════════ ABOUT ══════════════════ -->
+  <section id="about" class="section" aria-labelledby="aboutHeading">
+    <div class="section-inner">
+      <div class="eyebrow" data-anim="fade-up">About</div>
+      <h2 id="aboutHeading" data-anim="fade-up">A life devoted to compassion,<br><em>creativity, and conscious living.</em></h2>
+      <div class="about-grid">
+        <p class="about-text">
+          I am a vegan activist, artist, translator of sacred scriptures, spiritual counsellor, culinary creator, and founder of purpose-driven initiatives rooted in empathy. Through <strong>Voice for the Paws</strong> and <strong>Happy Kitchen</strong>, I create spaces where kindness becomes action.
+        </p>
+        <p class="about-text">
+          My work bridges spiritual depth and artistic expression &mdash; bringing healing, awareness, and beauty into everyday life. Every creation is an act of devotion: to the earth, to all beings, and to the boundless capacity of the human heart.
+        </p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" data-count="8" data-suffix="+">0</div>
+          <div class="stat-label">Years of Activism</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-count="500" data-suffix="+">0</div>
+          <div class="stat-label">Artworks Created</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-count="3" data-suffix="">0</div>
+          <div class="stat-label">Organisations Founded</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-count="2" data-suffix="">0</div>
+          <div class="stat-label">Scriptural Traditions Translated</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="education" class="reveal">
-  <div class="eyebrow">Education</div>
-  <h2>Learning as spiritual practice.</h2>
-  <div class="glass-grid">
-    <div class="card">Masters in Buddhist and Tibetan Studies<br><span class="muted">Namgyal Institute of Tibetology</span></div>
-    <div class="card">Graduation in English Honours<br><span class="muted">North Bengal University</span></div>
-    <div class="card">Nalanda Certificate Course in Buddhist Philosophy<br><span class="muted">Tibet House</span></div>
-  </div>
-</section>
+  <!-- ══════════════════ EXPERIENCE ══════════════════ -->
+  <section id="experience" class="section section-dark" aria-labelledby="expHeading">
+    <div class="section-inner">
+      <div class="eyebrow" data-anim="fade-up">Experience</div>
+      <h2 id="expHeading" data-anim="fade-up">Work with <em>purpose.</em></h2>
+      <div class="experience-grid">
+        <article class="exp-card">
+          <div class="exp-icon" aria-hidden="true"><i class="fas fa-book-open"></i></div>
+          <h3>Translator of Sacred Scriptures</h3>
+          <p>Buddhist &amp; Christian traditions &mdash; bridging ancient wisdom with the modern world through faithful, soulful translation.</p>
+        </article>
+        <article class="exp-card">
+          <div class="exp-icon" aria-hidden="true"><i class="fas fa-paw"></i></div>
+          <h3>Founder &mdash; Voice for the Paws</h3>
+          <p>NGO dedicated to animal welfare, rescue, and compassionate advocacy for those who cannot speak for themselves.</p>
+        </article>
+        <article class="exp-card">
+          <div class="exp-icon" aria-hidden="true"><i class="fas fa-utensils"></i></div>
+          <h3>Founder &mdash; Happy Kitchen</h3>
+          <p>Plant-based cloud kitchen celebrating the art of conscious, compassionate cooking that nourishes body and soul.</p>
+        </article>
+        <article class="exp-card">
+          <div class="exp-icon" aria-hidden="true"><i class="fas fa-palette"></i></div>
+          <h3>Artist &amp; Art Seller</h3>
+          <p>Creating and curating original works that speak the language of soul, empathy, and spiritual depth.</p>
+        </article>
+        <article class="exp-card">
+          <div class="exp-icon" aria-hidden="true"><i class="fas fa-microphone"></i></div>
+          <h3>Voice Artist</h3>
+          <p>Lending voice to stories, documentaries, and spiritual content with authentic presence and creative heart.</p>
+        </article>
+        <article class="exp-card">
+          <div class="exp-icon" aria-hidden="true"><i class="fas fa-leaf"></i></div>
+          <h3>Creative Ideator &mdash; Satvic Movement</h3>
+          <p>Co-creating content rooted in natural living, holistic wellness, and the transformative power of a conscious lifestyle.</p>
+        </article>
+        <article class="exp-card">
+          <div class="exp-icon" aria-hidden="true"><i class="fas fa-seedling"></i></div>
+          <h3>Vegan Outreach Advocate</h3>
+          <p>Educating and inspiring communities to embrace compassionate, cruelty-free living through storytelling and action.</p>
+        </article>
+        <article class="exp-card">
+          <div class="exp-icon" aria-hidden="true"><i class="fas fa-train"></i></div>
+          <h3>Northeast Frontier Railway</h3>
+          <p>2025&ndash;2026 &mdash; Contributing expertise, dedication, and creative thinking to one of India&rsquo;s great institutions.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<section class="reveal">
-  <div class="eyebrow">Interests</div>
-  <h2>What nourishes my spirit.</h2>
-  <div class="glass-grid">
-    <div class="card">Voice Artistry</div>
-    <div class="card">Vegan Outreach</div>
-    <div class="card">Spiritual Studies</div>
-    <div class="card">Meditation & Mindfulness</div>
-    <div class="card">Cultural & Spiritual Travel</div>
-    <div class="card">Community Service</div>
-  </div>
-</section>
+  <!-- ══════════════════ SKILLS ══════════════════ -->
+  <section id="skills" class="section" aria-labelledby="skillsHeading">
+    <div class="section-inner">
+      <div class="eyebrow" data-anim="fade-up">Skills</div>
+      <h2 id="skillsHeading" data-anim="fade-up">Crafted with heart<br><em>and discipline.</em></h2>
+      <div class="skills-grid">
+        <div class="skill-pill"><i class="fas fa-pen-nib" aria-hidden="true"></i> Content Writing</div>
+        <div class="skill-pill"><i class="fas fa-language" aria-hidden="true"></i> Translation</div>
+        <div class="skill-pill"><i class="fas fa-comments" aria-hidden="true"></i> Communication</div>
+        <div class="skill-pill"><i class="fas fa-fire" aria-hidden="true"></i> Cooking</div>
+        <div class="skill-pill"><i class="fas fa-music" aria-hidden="true"></i> Music Composition</div>
+        <div class="skill-pill"><i class="fas fa-pencil" aria-hidden="true"></i> Doodling &amp; Art</div>
+        <div class="skill-pill"><i class="fas fa-bullhorn" aria-hidden="true"></i> Public Speaking</div>
+        <div class="skill-pill"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education Guidance</div>
+        <div class="skill-pill"><i class="fas fa-share-nodes" aria-hidden="true"></i> Social Media Marketing</div>
+        <div class="skill-pill"><i class="fas fa-heart" aria-hidden="true"></i> Motivation &amp; Counselling</div>
+        <div class="skill-pill"><i class="fas fa-microphone-lines" aria-hidden="true"></i> Voice Artistry</div>
+        <div class="skill-pill"><i class="fas fa-om" aria-hidden="true"></i> Spiritual Facilitation</div>
+      </div>
+    </div>
+  </section>
 
-<section id="contact" class="contact reveal">
-  <div class="eyebrow">Contact</div>
-  <h2>Let beauty become meaningful.</h2>
-  <div class="card">
-    <a href="tel:+917872796518">+91 7872796518</a>
-    <a href="mailto:yeshudhun97@gmail.com">yeshudhun97@gmail.com</a>
-    <a href="https://www.linkedin.com/in/soummya-chakraborty-011719343/" target="_blank">LinkedIn</a>
-    <a href="https://github.com/SoummyashreeChakraborty" target="_blank">GitHub</a>
-  </div>
-</section>
+  <!-- ══════════════════ GALLERY ══════════════════ -->
+  <section id="gallery" class="section section-dark" aria-labelledby="galleryHeading">
+    <div class="section-inner">
+      <div class="eyebrow" data-anim="fade-up">Gallery</div>
+      <h2 id="galleryHeading" data-anim="fade-up">Art as a form<br><em>of prayer.</em></h2>
+      <p class="section-desc" data-anim="fade-up">
+        A curated selection of original works &mdash; each piece a meditation, each stroke an offering to the world.
+      </p>
+      <div class="gallery-grid">
+        <a href="assets/images/portrait.png" class="gallery-item glightbox" data-gallery="gallery1" data-title="Soummyashree Chakraborty" data-description="Artist · Vegan Activist · Voice Artist">
+          <div class="gallery-thumb" style="background:linear-gradient(135deg,rgba(216,185,143,.18),rgba(216,185,143,.06));">
+            <div class="gallery-thumb-inner"><i class="fas fa-user" aria-hidden="true"></i><span>Portrait</span></div>
+          </div>
+          <div class="gallery-overlay" aria-hidden="true"><span>View &nbsp;<i class="fas fa-arrow-up-right-from-square"></i></span></div>
+        </a>
+        <a href="assets/images/portrait.png" class="gallery-item glightbox" data-gallery="gallery1" data-title="Original Artwork I" data-description="Mixed media on canvas">
+          <div class="gallery-thumb" style="background:linear-gradient(135deg,rgba(180,140,216,.15),rgba(216,185,143,.08));">
+            <div class="gallery-thumb-inner"><i class="fas fa-palette" aria-hidden="true"></i><span>Artwork I</span></div>
+          </div>
+          <div class="gallery-overlay" aria-hidden="true"><span>View &nbsp;<i class="fas fa-arrow-up-right-from-square"></i></span></div>
+        </a>
+        <a href="assets/images/portrait.png" class="gallery-item glightbox" data-gallery="gallery1" data-title="Voice Artistry" data-description="Recording session &mdash; spiritual content">
+          <div class="gallery-thumb" style="background:linear-gradient(135deg,rgba(143,185,216,.15),rgba(185,143,216,.08));">
+            <div class="gallery-thumb-inner"><i class="fas fa-microphone" aria-hidden="true"></i><span>Voice Art</span></div>
+          </div>
+          <div class="gallery-overlay" aria-hidden="true"><span>View &nbsp;<i class="fas fa-arrow-up-right-from-square"></i></span></div>
+        </a>
+        <a href="assets/images/portrait.png" class="gallery-item glightbox" data-gallery="gallery1" data-title="Vegan Activism" data-description="Voice for the Paws &mdash; community outreach">
+          <div class="gallery-thumb" style="background:linear-gradient(135deg,rgba(143,216,185,.15),rgba(216,185,143,.08));">
+            <div class="gallery-thumb-inner"><i class="fas fa-leaf" aria-hidden="true"></i><span>Activism</span></div>
+          </div>
+          <div class="gallery-overlay" aria-hidden="true"><span>View &nbsp;<i class="fas fa-arrow-up-right-from-square"></i></span></div>
+        </a>
+        <a href="assets/images/portrait.png" class="gallery-item glightbox" data-gallery="gallery1" data-title="Spiritual Practice" data-description="Buddhist studies &amp; meditation">
+          <div class="gallery-thumb" style="background:linear-gradient(135deg,rgba(216,210,143,.18),rgba(216,185,143,.06));">
+            <div class="gallery-thumb-inner"><i class="fas fa-om" aria-hidden="true"></i><span>Spirit</span></div>
+          </div>
+          <div class="gallery-overlay" aria-hidden="true"><span>View &nbsp;<i class="fas fa-arrow-up-right-from-square"></i></span></div>
+        </a>
+        <a href="assets/images/portrait.png" class="gallery-item glightbox" data-gallery="gallery1" data-title="Happy Kitchen" data-description="Plant-based culinary creations">
+          <div class="gallery-thumb" style="background:linear-gradient(135deg,rgba(216,185,143,.12),rgba(143,216,210,.12));">
+            <div class="gallery-thumb-inner"><i class="fas fa-utensils" aria-hidden="true"></i><span>Kitchen</span></div>
+          </div>
+          <div class="gallery-overlay" aria-hidden="true"><span>View &nbsp;<i class="fas fa-arrow-up-right-from-square"></i></span></div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  Crafted with elegance, compassion, and conscious purpose — Soummyashree Chakraborty
-</footer>
+  <!-- ══════════════════ EDUCATION ══════════════════ -->
+  <section id="education" class="section" aria-labelledby="eduHeading">
+    <div class="section-inner">
+      <div class="eyebrow" data-anim="fade-up">Education</div>
+      <h2 id="eduHeading" data-anim="fade-up">Learning as<br><em>spiritual practice.</em></h2>
+      <div class="education-timeline">
+        <div class="edu-item">
+          <div class="edu-dot" aria-hidden="true"></div>
+          <div class="edu-content">
+            <span class="edu-year">Masters</span>
+            <h3>Buddhist and Tibetan Studies</h3>
+            <p>Namgyal Institute of Tibetology</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-dot" aria-hidden="true"></div>
+          <div class="edu-content">
+            <span class="edu-year">Graduation</span>
+            <h3>English Honours</h3>
+            <p>North Bengal University</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-dot" aria-hidden="true"></div>
+          <div class="edu-content">
+            <span class="edu-year">Certificate</span>
+            <h3>Nalanda Course in Buddhist Philosophy</h3>
+            <p>Tibet House, New Delhi</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  window.addEventListener('load', () => {
-    document.getElementById('loader').classList.add('hide-loader');
-  });
+  <!-- ══════════════════ INTERESTS ══════════════════ -->
+  <section class="section section-dark" aria-labelledby="interestsHeading">
+    <div class="section-inner">
+      <div class="eyebrow" data-anim="fade-up">Interests</div>
+      <h2 id="interestsHeading" data-anim="fade-up">What nourishes<br><em>my spirit.</em></h2>
+      <div class="interests-grid">
+        <div class="interest-item"><div class="interest-icon" aria-hidden="true"><i class="fas fa-microphone-lines"></i></div><span>Voice Artistry</span></div>
+        <div class="interest-item"><div class="interest-icon" aria-hidden="true"><i class="fas fa-seedling"></i></div><span>Vegan Outreach</span></div>
+        <div class="interest-item"><div class="interest-icon" aria-hidden="true"><i class="fas fa-yin-yang"></i></div><span>Spiritual Studies</span></div>
+        <div class="interest-item"><div class="interest-icon" aria-hidden="true"><i class="fas fa-spa"></i></div><span>Meditation &amp; Mindfulness</span></div>
+        <div class="interest-item"><div class="interest-icon" aria-hidden="true"><i class="fas fa-earth-asia"></i></div><span>Cultural &amp; Spiritual Travel</span></div>
+        <div class="interest-item"><div class="interest-icon" aria-hidden="true"><i class="fas fa-handshake-angle"></i></div><span>Community Service</span></div>
+      </div>
+    </div>
+  </section>
 
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('active');
-    });
-  }, { threshold: 0.15 });
+  <!-- ══════════════════ CONTACT ══════════════════ -->
+  <section id="contact" class="section contact-section" aria-labelledby="contactHeading">
+    <div class="section-inner">
+      <div class="eyebrow" data-anim="fade-up">Contact</div>
+      <h2 id="contactHeading" data-anim="fade-up">Let beauty<br><em>become meaningful.</em></h2>
+      <p class="section-desc" data-anim="fade-up">
+        Open to collaborations, commissions, speaking engagements, and conversations rooted in compassion and purpose.
+      </p>
+      <div class="contact-grid">
+        <a href="tel:+917872796518" class="contact-card magnetic" aria-label="Call +91 7872796518">
+          <div class="contact-icon" aria-hidden="true"><i class="fas fa-phone"></i></div>
+          <div><span class="contact-label">Phone</span><span class="contact-value">+91 7872796518</span></div>
+        </a>
+        <a href="mailto:yeshudhun97@gmail.com" class="contact-card magnetic" aria-label="Email Soummyashree">
+          <div class="contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+          <div><span class="contact-label">Email</span><span class="contact-value">yeshudhun97@gmail.com</span></div>
+        </a>
+        <a href="https://www.linkedin.com/in/soummya-chakraborty-011719343/" target="_blank" rel="noopener noreferrer" class="contact-card magnetic" aria-label="LinkedIn Profile">
+          <div class="contact-icon" aria-hidden="true"><i class="fab fa-linkedin"></i></div>
+          <div><span class="contact-label">LinkedIn</span><span class="contact-value">Connect with me</span></div>
+        </a>
+        <a href="https://github.com/SoummyashreeChakraborty" target="_blank" rel="noopener noreferrer" class="contact-card magnetic" aria-label="GitHub Profile">
+          <div class="contact-icon" aria-hidden="true"><i class="fab fa-github"></i></div>
+          <div><span class="contact-label">GitHub</span><span class="contact-value">SoummyashreeChakraborty</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-  reveals.forEach(el => observer.observe(el));
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-logo">Soummyashree</div>
+      <p class="footer-tagline">Artist &nbsp;&middot;&nbsp; Activist &nbsp;&middot;&nbsp; Translator &nbsp;&middot;&nbsp; Voice Artist &nbsp;&middot;&nbsp; Spiritual Counsellor</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer-copy">Crafted with elegance, compassion &amp; conscious purpose &nbsp;&mdash;&nbsp; &copy; 2026 Soummyashree Chakraborty</p>
+    </div>
+  </footer>
 
-  document.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 10;
-    const y = (e.clientY / window.innerHeight - 0.5) * 10;
-    document.querySelector('.portrait').style.transform = `translate(${x}px, ${y}px)`;
-  });
-</script>
+  <!-- CDN Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js" crossorigin="anonymous"></script>
+
+  <!-- App Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
 
 </body>
 </html>

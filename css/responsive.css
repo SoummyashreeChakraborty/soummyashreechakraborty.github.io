@@ -1,0 +1,148 @@
+/* ============================================================
+   RESPONSIVE.CSS — Mobile-first responsive breakpoints
+   ============================================================ */
+
+/* ── Large Desktop (1400px+) ──────────────────────────────── */
+@media (min-width: 1400px) {
+  .section { padding: 160px 40px; }
+  .hero-section { padding: 140px 40px 100px; gap: 100px; }
+  .portrait-frame { height: 700px; }
+}
+
+/* ── Tablet/Small Desktop (max 1100px) ────────────────────── */
+@media (max-width: 1100px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .experience-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Tablet (max 900px) ───────────────────────────────────── */
+@media (max-width: 900px) {
+  /* Typography */
+  h1 { font-size: clamp(2.8rem, 10vw, 5rem); }
+  h2 { font-size: clamp(2rem, 6vw, 3.5rem); }
+
+  /* Cursor — hide on touch */
+  .cursor, .cursor-follower { display: none; }
+  body { cursor: auto; }
+  .btn, .nav-link, .mobile-nav-link, .hamburger,
+  .mobile-menu-close, .gallery-item, .contact-card { cursor: pointer; }
+
+  /* Nav */
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-wrap { padding: 18px 24px; }
+
+  /* Hero — single column */
+  .hero-section {
+    grid-template-columns: 1fr;
+    padding: 110px 24px 80px;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .hero-content { align-items: center; }
+  .hero-desc { text-align: center; }
+  .hero-buttons { justify-content: center; }
+  .hero-scroll-hint { justify-content: center; }
+  .eyebrow { justify-content: center; }
+
+  .portrait-frame { height: 480px; max-width: 400px; margin: 0 auto; }
+
+  /* About */
+  .about-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Experience */
+  .experience-grid { grid-template-columns: 1fr; }
+
+  /* Gallery */
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Education */
+  .education-timeline { padding-left: 32px; }
+
+  /* Interests */
+  .interests-grid { grid-template-columns: repeat(3, 1fr); }
+
+  /* Section padding */
+  .section { padding: 100px 24px; }
+}
+
+/* ── Mobile (max 600px) ───────────────────────────────────── */
+@media (max-width: 600px) {
+  /* Typography */
+  h1 { font-size: clamp(2.4rem, 12vw, 3.8rem); }
+  h2 { font-size: clamp(1.9rem, 8vw, 2.8rem); }
+
+  /* Section */
+  .section { padding: 80px 20px; }
+  .hero-section { padding: 100px 20px 60px; gap: 48px; }
+
+  /* Portrait */
+  .portrait-frame { height: 380px; }
+  .portrait-badge { font-size: 0.7rem; padding: 8px 16px; left: 20px; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat-number { font-size: 2.6rem; }
+
+  /* Gallery */
+  .gallery-grid { grid-template-columns: 1fr; }
+
+  /* Interests */
+  .interests-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Skills */
+  .skill-pill { font-size: 0.82rem; padding: 10px 16px; }
+
+  /* Contact */
+  .contact-card { padding: 22px 20px; }
+  .contact-value { font-size: 0.85rem; }
+
+  /* Footer */
+  footer { padding: 50px 20px 60px; }
+  .footer-links { gap: 20px; flex-wrap: wrap; justify-content: center; }
+
+  /* Mobile menu */
+  .mobile-menu { padding: 60px 28px; }
+  .mobile-nav-link { font-size: clamp(2rem, 8vw, 2.8rem); }
+
+  /* Buttons */
+  .hero-buttons { flex-direction: column; width: 100%; }
+  .btn { justify-content: center; width: 100%; }
+
+  /* Loader */
+  .loader-logo { font-size: 2.8rem; }
+}
+
+/* ── Very small (max 380px) ───────────────────────────────── */
+@media (max-width: 380px) {
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+  .portrait-frame { height: 320px; }
+  .stats-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Touch devices — remove hover transforms ──────────────── */
+@media (hover: none) {
+  .exp-card:hover,
+  .stat-card:hover,
+  .contact-card:hover,
+  .interest-item:hover,
+  .skill-pill:hover,
+  .gallery-item:hover .gallery-thumb { transform: none; }
+
+  .gallery-overlay { opacity: 1; background: rgba(11,9,9,0.35); }
+}
+
+/* ── High contrast / accessibility ───────────────────────── */
+@media (prefers-contrast: high) {
+  :root {
+    --line: rgba(255,255,255,0.25);
+    --muted: #c9beb0;
+  }
+}

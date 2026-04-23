@@ -1,0 +1,117 @@
+/* ============================================================
+   ANIMATIONS.CSS — Keyframes & Animation Utilities
+   ============================================================ */
+
+/* ── Loader ───────────────────────────────────────────────── */
+@keyframes loaderPulse {
+  0%, 100% { opacity: 0.3; transform: scaleX(0.95); }
+  50%       { opacity: 1;   transform: scaleX(1);    }
+}
+
+@keyframes loaderLineGrow {
+  0%   { transform: scaleX(0) translateX(-50%); }
+  100% { transform: scaleX(1) translateX(-50%); }
+}
+
+@keyframes loaderTextFade {
+  0%   { opacity: 0; letter-spacing: 8px; }
+  100% { opacity: 1; letter-spacing: 4px; }
+}
+
+/* ── Global ───────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+
+/* ── Scroll Progress ──────────────────────────────────────── */
+@keyframes progressPulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(216,185,143,0.5); }
+  50%       { box-shadow: 0 0 14px rgba(216,185,143,0.9); }
+}
+
+/* ── Floating Badge ───────────────────────────────────────── */
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0px);   }
+  50%       { transform: translateY(-8px);  }
+}
+
+/* ── Portrait glow pulse ──────────────────────────────────── */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(216,185,143,0.08), var(--shadow); }
+  50%       { box-shadow: 0 0 80px rgba(216,185,143,0.18), var(--shadow-lg); }
+}
+
+/* ── Scroll hint line ─────────────────────────────────────── */
+@keyframes scrollLineDrop {
+  0%   { transform: scaleY(0) translateY(-100%); opacity: 0; }
+  40%  { opacity: 1; }
+  100% { transform: scaleY(1) translateY(0);     opacity: 1; }
+}
+
+@keyframes scrollLineBounce {
+  0%, 100% { transform: scaleY(1);    }
+  50%       { transform: scaleY(0.6); }
+}
+
+/* ── Orbit/Spin for decorative elements ──────────────────── */
+@keyframes slowRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Education dot pulse ──────────────────────────────────── */
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(216,185,143,0.5); }
+  50%       { box-shadow: 0 0 0 8px rgba(216,185,143,0);  }
+}
+
+/* ── Cursor blink ─────────────────────────────────────────── */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Shimmer (card hover accent line) ────────────────────── */
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%);  }
+}
+
+/* ── Applied animation classes ────────────────────────────── */
+.anim-fade-in    { animation: fadeIn    0.8s var(--ease-out) both; }
+.anim-fade-up    { animation: fadeUp    0.9s var(--ease-out) both; }
+.anim-scale-in   { animation: scaleIn   0.8s var(--ease-out) both; }
+.anim-slide-right{ animation: slideInRight 0.9s var(--ease-out) both; }
+
+/* Stagger delays */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* ── Reduced motion ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
