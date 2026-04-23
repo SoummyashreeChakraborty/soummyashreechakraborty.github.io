@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soummyashree Chakraborty | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f0d0d;
+      --bg-soft: #171414;
+      --card: rgba(255,255,255,0.06);
+      --text: #f5f1eb;
+      --muted: #c9beb0;
+      --accent: #d8b98f;
+      --line: rgba(255,255,255,0.08);
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 24px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(216,185,143,0.08), transparent 30%),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .loader {
+      position: fixed;
+      inset: 0;
+      background: #0b0909;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: 1s ease;
+    }
+
+    .loader h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      letter-spacing: 4px;
+      color: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    .hide-loader { opacity: 0; visibility: hidden; }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      background: rgba(10,10,10,0.45);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-wrap {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: .3s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 120px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    h1, h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    h1 { font-size: clamp(3rem, 7vw, 6rem); }
+    h2 { font-size: clamp(2.2rem, 4vw, 3.8rem); margin-bottom: 20px; }
+
+    .eyebrow {
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+    }
+
+    .hero p { color: var(--muted); font-size: 1.05rem; max-width: 620px; }
+
+    .tagline {
+      margin: 22px 0;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 34px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text);
+      transition: .35s;
+      backdrop-filter: blur(12px);
+    }
+
+    .btn.primary {
+      background: rgba(216,185,143,0.12);
+      border-color: rgba(216,185,143,0.35);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .portrait {
+      height: 620px;
+      border-radius: 32px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portrait::before {
+      content: "Professional Portrait";
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .glass-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      transition: .4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .timeline .card { margin-bottom: 20px; }
+
+    .muted { color: var(--muted); }
+
+    .contact a {
+      color: var(--text);
+      text-decoration: none;
+      display: block;
+      margin: 10px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px 80px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all .9s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 120px;
+      }
+      .portrait { height: 420px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <h1>SOUMMYASHREE</h1>
+</div>
+
+<nav>
+  <div class="nav-wrap">
+    <div class="logo">Soummyashree</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero reveal">
+  <div>
+    <div class="eyebrow">Luxury Personal Brand Portfolio</div>
+    <h1>Soummyashree Chakraborty</h1>
+    <p class="tagline">Artist • Vegan Activist • Translator • Voice Artist • Spiritual Counsellor</p>
+    <p>
+      Creating beauty, compassion, and consciousness through art and purpose — where soulful storytelling meets activism, spirituality, and creative elegance.
+    </p>
+    <div class="buttons">
+      <a href="#experience" class="btn primary">View Work</a>
+      <a href="#contact" class="btn">Contact Me</a>
+    </div>
+  </div>
+  <div class="portrait"></div>
+</section>
+
+<section id="about" class="reveal">
+  <div class="eyebrow">About</div>
+  <h2>A life devoted to compassion, creativity, and conscious living.</h2>
+  <p class="muted">
+    I am a vegan activist, artist, translator of sacred scriptures, spiritual counsellor, culinary creator, and founder of purpose-driven initiatives rooted in empathy. Through Voice for the Paws and Happy Kitchen, I create spaces where kindness becomes action. My work bridges spiritual depth and artistic expression—bringing healing, awareness, and beauty into everyday life.
+  </p>
+</section>
+
+<section id="experience" class="timeline reveal">
+  <div class="eyebrow">Experience</div>
+  <h2>Work with purpose.</h2>
+  <div class="glass-grid">
+    <div class="card">Translator of Buddhist & Christian Scriptures</div>
+    <div class="card">Founder — Voice for the Paws (NGO)</div>
+    <div class="card">Founder — Happy Kitchen (Plant-Based Cloud Kitchen)</div>
+    <div class="card">Art Seller</div>
+    <div class="card">Vegan Outreach Advocate</div>
+    <div class="card">Voice Artist</div>
+    <div class="card">Creative Ideator — Satvic Movement</div>
+    <div class="card">Northeast Frontier Railway (2025–2026)</div>
+  </div>
+</section>
+
+<section id="skills" class="reveal">
+  <div class="eyebrow">Skills</div>
+  <h2>Crafted with heart and discipline.</h2>
+  <div class="glass-grid">
+    <div class="card">Content Writing</div>
+    <div class="card">Translation</div>
+    <div class="card">Communication</div>
+    <div class="card">Cooking</div>
+    <div class="card">Music Composition</div>
+    <div class="card">Doodling</div>
+    <div class="card">Public Speaking</div>
+    <div class="card">Education Guidance</div>
+    <div class="card">Social Media Marketing</div>
+    <div class="card">Motivation & Counselling</div>
+  </div>
+</section>
+
+<section id="education" class="reveal">
+  <div class="eyebrow">Education</div>
+  <h2>Learning as spiritual practice.</h2>
+  <div class="glass-grid">
+    <div class="card">Masters in Buddhist and Tibetan Studies<br><span class="muted">Namgyal Institute of Tibetology</span></div>
+    <div class="card">Graduation in English Honours<br><span class="muted">North Bengal University</span></div>
+    <div class="card">Nalanda Certificate Course in Buddhist Philosophy<br><span class="muted">Tibet House</span></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">Interests</div>
+  <h2>What nourishes my spirit.</h2>
+  <div class="glass-grid">
+    <div class="card">Voice Artistry</div>
+    <div class="card">Vegan Outreach</div>
+    <div class="card">Spiritual Studies</div>
+    <div class="card">Meditation & Mindfulness</div>
+    <div class="card">Cultural & Spiritual Travel</div>
+    <div class="card">Community Service</div>
+  </div>
+</section>
+
+<section id="contact" class="contact reveal">
+  <div class="eyebrow">Contact</div>
+  <h2>Let beauty become meaningful.</h2>
+  <div class="card">
+    <a href="tel:+917872796518">+91 7872796518</a>
+    <a href="mailto:yeshudhun97@gmail.com">yeshudhun97@gmail.com</a>
+    <a href="https://www.linkedin.com/in/soummya-chakraborty-011719343/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/SoummyashreeChakraborty" target="_blank">GitHub</a>
+  </div>
+</section>
+
+<footer>
+  Crafted with elegance, compassion, and conscious purpose — Soummyashree Chakraborty
+</footer>
+
+<script>
+  window.addEventListener('load', () => {
+    document.getElementById('loader').classList.add('hide-loader');
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('active');
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 10;
+    const y = (e.clientY / window.innerHeight - 0.5) * 10;
+    document.querySelector('.portrait').style.transform = `translate(${x}px, ${y}px)`;
+  });
+</script>
+
+</body>
+</html>
