@@ -299,7 +299,7 @@
   z-index: 2;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   align-items: center;
   gap: 60px;
   max-width: 1200px;
@@ -316,9 +316,10 @@
 .hero-title {
   margin: 12px 0 0;
   overflow: visible;
-  white-space: nowrap;
-  font-size: clamp(1.9rem, 5vw, 5.8rem);
-  line-height: 1.05;
+  white-space: normal;
+  word-break: keep-all;
+  font-size: clamp(2rem, 4.2vw, 5rem);
+  line-height: 1.08;
 }
 
 /* SplitType char wrapper */
