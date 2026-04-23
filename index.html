@@ -81,6 +81,8 @@
         <a href="#experience" class="nav-link magnetic">Experience</a>
         <a href="#skills"     class="nav-link magnetic">Skills</a>
         <a href="#gallery"    class="nav-link magnetic">Gallery</a>
+        <a href="#artwork"    class="nav-link magnetic">Artwork</a>
+        <a href="#music"      class="nav-link magnetic">Music</a>
         <a href="#education"  class="nav-link magnetic">Education</a>
         <a href="#contact"    class="nav-link magnetic">Contact</a>
       </div>
@@ -98,6 +100,8 @@
       <a href="#experience" class="mobile-nav-link">Experience</a>
       <a href="#skills"     class="mobile-nav-link">Skills</a>
       <a href="#gallery"    class="mobile-nav-link">Gallery</a>
+      <a href="#artwork"    class="mobile-nav-link">Artwork</a>
+      <a href="#music"      class="mobile-nav-link">Music</a>
       <a href="#education"  class="mobile-nav-link">Education</a>
       <a href="#contact"    class="mobile-nav-link">Contact</a>
     </nav>
@@ -353,6 +357,30 @@
     </div>
   </section>
 
+  <!-- ══════════════════ ARTWORK (dynamic) ══════════════════ -->
+  <section id="artwork-section" class="section" aria-labelledby="artworkHeading" style="display:none">
+    <div class="section-inner">
+      <div class="eyebrow" data-anim="fade-up">Artwork</div>
+      <h2 id="artworkHeading" data-anim="fade-up">Created with soul,<br><em>offered to the world.</em></h2>
+      <p class="section-desc" data-anim="fade-up">
+        Original works &mdash; paintings, illustrations, and visual meditations. Each piece carries intention.
+      </p>
+      <div class="artwork-dynamic-grid" id="artworkGrid"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ MUSIC (dynamic) ══════════════════ -->
+  <section id="music-section" class="section section-dark" aria-labelledby="musicHeading" style="display:none">
+    <div class="section-inner">
+      <div class="eyebrow" data-anim="fade-up">Music</div>
+      <h2 id="musicHeading" data-anim="fade-up">Songs of the<br><em>sacred &amp; the still.</em></h2>
+      <p class="section-desc" data-anim="fade-up">
+        Compositions and recordings rooted in contemplation, compassion, and the beauty of conscious sound.
+      </p>
+      <div class="music-player-wrap" id="musicPlayerWrap"></div>
+    </div>
+  </section>
+
   <!-- ══════════════════ CONTACT ══════════════════ -->
   <section id="contact" class="section contact-section" aria-labelledby="contactHeading">
     <div class="section-inner">
@@ -408,6 +436,7 @@
   <script src="js/cursor.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/media.js"></script>
 
 </body>
 </html>

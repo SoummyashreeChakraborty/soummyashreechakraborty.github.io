@@ -1,0 +1,59 @@
+name: Generate Media Manifest
+
+on:
+  push:
+    paths:
+      - 'music/**'
+      - 'artwork/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate manifest.json
+        run: |
+          python3 - <<'PYEOF'
+          import os, json
+
+          MUSIC_EXTS   = ('.mp3', '.wav', '.ogg', '.m4a', '.flac', '.aac')
+          ARTWORK_EXTS = ('.jpg', '.jpeg', '.png', '.gif', '.webp', '.avif', '.svg')
+
+          def scan(folder, exts):
+              if not os.path.isdir(folder):
+                  return []
+              return sorted([
+                  f for f in os.listdir(folder)
+                  if f.lower().endswith(exts) and not f.startswith('.')
+              ])
+
+          music   = scan('music',   MUSIC_EXTS)
+          artwork = scan('artwork', ARTWORK_EXTS)
+
+          manifest = {
+              "music":   music,
+              "artwork": artwork
+          }
+
+          with open('manifest.json', 'w') as fp:
+              json.dump(manifest, fp, indent=2)
+
+          print(f"manifest.json written — {len(music)} tracks, {len(artwork)} artworks")
+          PYEOF
+
+      - name: Commit manifest.json
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add manifest.json
+          git diff --staged --quiet && echo "No changes to manifest" || git commit -m "ci: auto-update media manifest [skip ci]"
+          git push
