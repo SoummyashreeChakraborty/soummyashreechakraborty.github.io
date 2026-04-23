@@ -6,7 +6,7 @@
 @media (min-width: 1400px) {
   .section { padding: 160px 40px; }
   .hero-section { padding: 140px 40px 100px; gap: 100px; }
-  .portrait-frame { height: 700px; }
+  .portrait-frame { max-height: 760px; }
 }
 
 /* ── Tablet/Small Desktop (max 1100px) ────────────────────── */
@@ -48,7 +48,7 @@
   .hero-scroll-hint { justify-content: center; }
   .eyebrow { justify-content: center; }
 
-  .portrait-frame { height: 480px; max-width: 400px; margin: 0 auto; }
+  .portrait-frame { aspect-ratio: 4 / 5; height: auto; max-width: 400px; max-height: none; margin: 0 auto; }
 
   /* About */
   .about-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }
@@ -83,7 +83,7 @@
   .hero-section { padding: 100px 20px 60px; gap: 48px; }
 
   /* Portrait */
-  .portrait-frame { height: 380px; }
+  .portrait-frame { max-width: 340px; }
   .portrait-badge { font-size: 0.7rem; padding: 8px 16px; left: 20px; }
 
   /* Stats */
