@@ -94,7 +94,7 @@
   function initStaggerGrids() {
     const grids = [
       { parent: '.experience-grid', child: '.exp-card' },
-      { parent: '.skills-grid',     child: '.skill-pill' },
+      { parent: '.skill-categories',  child: '.skill-category' },
       { parent: '.gallery-grid',    child: '.gallery-item' },
       { parent: '.interests-grid',  child: '.interest-item' },
       { parent: '.stats-grid',      child: '.stat-card' },

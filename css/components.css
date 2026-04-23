@@ -589,6 +589,33 @@
   margin-top: 16px;
 }
 
+/* ── Skill Categories ─────────────────────────────────────── */
+.skill-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 48px;
+}
+
+.skill-category {}
+
+.skill-category-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.skill-category-label i {
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
 .skill-pill {
   display: inline-flex;
   align-items: center;
