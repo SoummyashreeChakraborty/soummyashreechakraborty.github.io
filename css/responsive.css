@@ -23,11 +23,8 @@
   h1 { font-size: clamp(2.8rem, 10vw, 5rem); }
   h2 { font-size: clamp(2rem, 6vw, 3.5rem); }
 
-  /* Cursor — hide on touch */
-  .cursor, .cursor-follower { display: none; }
-  body { cursor: auto; }
-  .btn, .nav-link, .mobile-nav-link, .hamburger,
-  .mobile-menu-close, .gallery-item, .contact-card { cursor: pointer; }
+  /* Videos — stack on tablet */
+  .videos-grid { grid-template-columns: 1fr; gap: 28px; }
 
   /* Nav */
   .nav-links { display: none; }
