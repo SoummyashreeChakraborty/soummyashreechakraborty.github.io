@@ -26,6 +26,15 @@
   /* Videos — stack on tablet */
   .videos-grid { grid-template-columns: 1fr; gap: 28px; }
 
+  /* Languages */
+  .lang-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Slider thumbs */
+  .artwork-thumbs .swiper-slide img { width: 72px; height: 54px; }
+
+  /* Exp bullets always visible on tablet */
+  .exp-bullets { max-height: none !important; opacity: 1 !important; }
+
   /* Nav */
   .nav-links { display: none; }
   .hamburger { display: flex; }
@@ -87,11 +96,17 @@
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .stat-number { font-size: 2.6rem; }
 
-  /* Gallery */
-  .gallery-grid { grid-template-columns: 1fr; }
+  /* Languages */
+  .lang-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
 
   /* Interests */
   .interests-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Slider thumbs smaller */
+  .artwork-thumbs .swiper-slide img { width: 60px; height: 45px; }
+
+  /* Contact grid single col on mobile */
+  .contact-grid { grid-template-columns: 1fr; }
 
   /* Skills */
   .skill-pill { font-size: 0.82rem; padding: 10px 16px; }

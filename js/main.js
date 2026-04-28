@@ -104,4 +104,19 @@
       });
     });
   })();
+
+  /* ── Language bar fill animation via IntersectionObserver ─── */
+  (function initLangBars() {
+    const cards = document.querySelectorAll('.lang-card');
+    if (!cards.length) return;
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    cards.forEach(c => io.observe(c));
+  })();
 })();
